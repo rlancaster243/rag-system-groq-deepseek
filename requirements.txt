@@ -1,0 +1,15 @@
+langchain==0.1.0
+langchain-groq==0.0.1
+chromadb==0.4.22
+sentence-transformers==2.3.1
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+streamlit==1.30.0
+nbformat==5.9.2
+beautifulsoup4==4.12.3
+pydantic==2.5.3
+pypdf==4.0.1
+python-dotenv==1.0.1
+lxml==5.1.0
+torch==2.1.2
+transformers==4.37.2

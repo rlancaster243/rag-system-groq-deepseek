@@ -31,7 +31,7 @@ def main():
     # Title and description
     st.title("🤖 RAG System")
     st.markdown(
-        "**Retrieval Augmented Generation** powered by Groq, DeepSeek R1, and local embeddings"
+        "**Retrieval Augmented Generation** powered by Groq, GPT-OSS 20B, and local embeddings"
     )
     st.divider()
 
@@ -149,8 +149,8 @@ def main():
                     st.subheader("📝 Answer")
                     st.markdown(
                         f"""
-                        <div style="background-color: #f0f2f6; padding: 20px; border-radius: 10px; border-left: 5px solid #4CAF50;">
-                        {result['answer']}
+                        <div style="padding: 20px; border-radius: 10px; border: 1px solid #00FF00;">
+                        <span style="color: #00FF00;">{result['answer']}</span>
                         </div>
                         """,
                         unsafe_allow_html=True

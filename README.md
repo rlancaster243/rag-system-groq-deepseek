@@ -1,12 +1,12 @@
-# RAG System with Groq and Mixtral 8x7B
+# RAG System with Groq and GPT-OSS 20B
 
-A complete **Retrieval Augmented Generation (RAG)** system that uses Groq's Mixtral 8x7B model with local open-source embeddings for document-grounded question answering.
+A complete **Retrieval Augmented Generation (RAG)** system that uses Groq's GPT-OSS 20B model with local open-source embeddings for document-grounded question answering.
 
 ## Overview
 
 This project implements a production-ready RAG system with the following features:
 
-- **LLM Provider**: Groq API with Mixtral 8x7B reasoning model
+- **LLM Provider**: Groq API with GPT-OSS 20B reasoning model
 - **Embeddings**: Local sentence-transformers (BAAI/bge-base-en-v1.5) - no external API required
 - **Vector Store**: Chroma with persistent storage
 - **Document Support**: PDF, TXT, MD, HTML, Python source files, Jupyter notebooks
@@ -19,7 +19,7 @@ The RAG system follows this workflow:
 
 1. **Ingestion**: Documents are loaded from the `data/` directory, chunked, embedded, and stored in Chroma
 2. **Retrieval**: User queries are embedded and matched against the vector store to find relevant documents
-3. **Generation**: Retrieved context is passed to Mixtral 8x7B via Groq to generate grounded answers with citations
+3. **Generation**: Retrieved context is passed to GPT-OSS 20B via Groq to generate grounded answers with citations
 
 ### Project Structure
 
@@ -278,7 +278,7 @@ Before pushing to GitHub:
 
 ### Models
 
-- **LLM**: `mixtral-8x7b-32768` via Groq
+- **LLM**: `openai/gpt-oss-20b` via Groq
   - Reasoning-optimized model
   - Temperature set to 0.0 for stable outputs
   

@@ -27,7 +27,7 @@ except (ImportError, FileNotFoundError, AttributeError):
 # Individual modules will check for the key when needed
 
 # LLM configuration
-DEFAULT_MODEL = "mixtral-8x7b-32768"
+DEFAULT_MODEL = "openai/gpt-oss-20b"
 LLM_TEMPERATURE = 0.0
 
 # Embedding configuration

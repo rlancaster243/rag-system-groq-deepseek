@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-A complete, production-ready **Retrieval Augmented Generation (RAG)** system has been successfully built and deployed to GitHub. The system leverages Groq's DeepSeek R1 Distill Llama 70B model combined with local open-source embeddings to provide accurate, document-grounded question answering.
+A complete, production-ready **Retrieval Augmented Generation (RAG)** system has been successfully built and deployed to GitHub. The system leverages Groq's Mixtral 8x7B model combined with local open-source embeddings to provide accurate, document-grounded question answering.
 
 ## GitHub Repository
 
@@ -16,7 +16,7 @@ The repository is public and immediately ready for cloning, collaboration, and d
 
 The system is built with a carefully selected technology stack that balances performance, cost, and maintainability:
 
-**LLM Provider**: Groq API provides ultra-fast inference for the DeepSeek R1 Distill Llama 70B model, a reasoning-optimized language model that excels at grounded question answering.
+**LLM Provider**: Groq API provides ultra-fast inference for the Mixtral 8x7B model, a reasoning-optimized language model that excels at grounded question answering.
 
 **Embeddings**: The BAAI/bge-base-en-v1.5 model from sentence-transformers runs completely locally, eliminating external API dependencies and costs for embedding generation. This 768-dimensional embedding model is specifically optimized for retrieval tasks.
 
@@ -38,7 +38,7 @@ After loading, documents are chunked using a recursive character text splitter w
 
 When a user submits a query, the system first embeds the question using the same BGE model to ensure semantic consistency. The embedded query is then matched against the vector store using cosine similarity to retrieve the top-k most relevant document chunks (default k=4).
 
-The retrieved chunks are formatted into a structured context that includes source information, file types, and location metadata. This context is combined with the user's question in a carefully engineered prompt that instructs the DeepSeek R1 model to provide answers based solely on the retrieved evidence, cite sources explicitly, and admit when information is insufficient.
+The retrieved chunks are formatted into a structured context that includes source information, file types, and location metadata. This context is combined with the user's question in a carefully engineered prompt that instructs the Mixtral 8x7B model to provide answers based solely on the retrieved evidence, cite sources explicitly, and admit when information is insufficient.
 
 ## Implementation Details
 
@@ -221,7 +221,7 @@ Chroma provides efficient similarity search with performance scaling roughly log
 
 ### LLM Inference
 
-Groq provides exceptionally fast inference, typically returning responses in under a second. The DeepSeek R1 model balances reasoning capability with speed, making it suitable for interactive applications.
+Groq provides exceptionally fast inference, typically returning responses in under a second. The Mixtral 8x7B model balances reasoning capability with speed, making it suitable for interactive applications.
 
 ## Deployment Considerations
 
@@ -264,4 +264,4 @@ For advanced use cases, users can explore the evaluation framework, customize th
 
 This RAG system represents a complete, production-ready solution for document-grounded question answering. The combination of Groq's fast inference, local embeddings, and modular architecture creates a system that is both powerful and practical. The GitHub-ready structure ensures that the project can be easily shared, collaborated on, and deployed in various environments.
 
-The system successfully meets all requirements specified in the original mission, including Groq integration with DeepSeek R1, local embeddings, Chroma vector storage, support for multiple file types, three distinct interfaces (CLI, API, web), and a clean GitHub-ready structure with no committed secrets or large artifacts.
+The system successfully meets all requirements specified in the original mission, including Groq integration with Mixtral 8x7B, local embeddings, Chroma vector storage, support for multiple file types, three distinct interfaces (CLI, API, web), and a clean GitHub-ready structure with no committed secrets or large artifacts.

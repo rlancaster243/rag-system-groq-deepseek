@@ -29,6 +29,22 @@ def main():
     )
     st.divider()
 
+    # Check for API key
+    from rag_app.config import GROQ_API_KEY
+    if not GROQ_API_KEY:
+        st.error(
+            "⚠️ **GROQ_API_KEY not configured!**\n\n"
+            "To use this app, you need to set your Groq API key:\n\n"
+            "**For Local Deployment:**\n"
+            "1. Copy `.env.example` to `.env`\n"
+            "2. Add your API key: `GROQ_API_KEY=your_key_here`\n\n"
+            "**For Streamlit Cloud:**\n"
+            "1. Go to App Settings → Secrets\n"
+            "2. Add: `GROQ_API_KEY = \"your_key_here\"`\n\n"
+            "Get a free API key at: https://console.groq.com/keys"
+        )
+        st.stop()
+
     # Sidebar
     with st.sidebar:
         st.header("⚙️ Configuration")
@@ -116,6 +132,11 @@ def main():
         else:
             with st.spinner("Searching and generating answer..."):
                 try:
+                    from rag_app.config import GROQ_API_KEY
+                    if not GROQ_API_KEY:
+                        st.error("GROQ_API_KEY is not configured. Please check your environment variables or Streamlit secrets.")
+                        st.stop()
+                    
                     result = answer_question(question, k=k)
 
                     # Display answer

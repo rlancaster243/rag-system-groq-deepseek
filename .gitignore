@@ -40,6 +40,9 @@ venv/
 env/
 ENV/
 
+# Streamlit
+.streamlit/secrets.toml
+
 # Data and artifacts
 data/*
 !data/.gitkeep

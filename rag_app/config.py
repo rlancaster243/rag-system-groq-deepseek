@@ -16,12 +16,15 @@ CHROMA_PERSIST_DIR = PROJECT_ROOT / "chroma_store"
 REPORTS_DIR = PROJECT_ROOT / "reports"
 
 # Groq API configuration
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-if not GROQ_API_KEY:
-    raise ValueError(
-        "GROQ_API_KEY not found in environment variables. "
-        "Please copy .env.example to .env and set your API key."
-    )
+# Try to get from Streamlit secrets first (for cloud deployment), then environment variables
+try:
+    import streamlit as st
+    GROQ_API_KEY = st.secrets.get("GROQ_API_KEY", os.getenv("GROQ_API_KEY"))
+except (ImportError, FileNotFoundError, AttributeError):
+    GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+
+# Note: We don't raise an error here anymore to allow imports to succeed
+# Individual modules will check for the key when needed
 
 # LLM configuration
 DEFAULT_MODEL = "deepseek-r1-distill-llama-70b"

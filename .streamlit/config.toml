@@ -1,0 +1,13 @@
+[server]
+maxUploadSize = 10
+enableXsrfProtection = true
+
+[runner]
+magicEnabled = true
+fastReruns = true
+
+[client]
+showErrorDetails = true
+
+[browser]
+gatherUsageStats = false

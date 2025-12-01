@@ -31,12 +31,12 @@ DEFAULT_MODEL = "openai/gpt-oss-20b"
 LLM_TEMPERATURE = 0.0
 
 # Embedding configuration
-EMBEDDING_MODEL = "BAAI/bge-base-en-v1.5"
+EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"  # Smaller model for Streamlit Cloud
 EMBEDDING_DEVICE = "cpu"  # Change to "cuda" if GPU is available
 
 # Chunking configuration
-CHUNK_SIZE = 1000
-CHUNK_OVERLAP = 200
+CHUNK_SIZE = 500  # Reduced for Streamlit Cloud memory limits
+CHUNK_OVERLAP = 50  # Reduced for Streamlit Cloud memory limits
 
 # Retrieval configuration
 DEFAULT_K = 4  # Number of documents to retrieve

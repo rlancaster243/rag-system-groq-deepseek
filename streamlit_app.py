@@ -11,6 +11,12 @@ from rag_app.config import DEFAULT_MODEL, DEFAULT_K
 from rag_app.vectorstore import get_vectorstore
 
 
+@st.cache_resource
+def get_cached_vectorstore():
+    """Get vector store with caching to reduce memory usage."""
+    return get_vectorstore()
+
+
 # Page configuration
 st.set_page_config(
     page_title="RAG System",
@@ -70,7 +76,7 @@ def main():
 
         # Show document count
         try:
-            vectorstore = get_vectorstore()
+            vectorstore = get_cached_vectorstore()
             doc_count = vectorstore.count()
             st.metric("Documents in index", doc_count)
         except Exception as e:

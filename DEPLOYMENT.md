@@ -20,7 +20,7 @@ If you haven't already, ensure the repository is in your GitHub account.
 
 1. Go to [share.streamlit.io](https://share.streamlit.io)
 2. Click "New app"
-3. Select your repository: `rlancaster243/rag-system-groq-deepseek`
+3. Select your repository: `rlancaster243/rag-system-groq-GPT-OSS`
 4. Set the main file path: `streamlit_app.py`
 5. Click "Deploy"
 
